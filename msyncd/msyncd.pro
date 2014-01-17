@@ -122,14 +122,11 @@ QMAKE_CXXFLAGS = -Wall \
 
 # install
 target.path = /usr/bin/
-loglevel.files = bin/set_sync_log_level
-loglevel.path = /etc/buteo/
 service.files = bin/msyncd.service
 service.path = /usr/lib/systemd/user/
 syncwidget.path = /etc/syncwidget/
 syncwidget.files = com.meego.msyncd
 INSTALLS += target \
-    loglevel \
     syncwidget \
     service
 
