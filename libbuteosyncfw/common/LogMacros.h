@@ -41,7 +41,7 @@
 #define LOG_CRITICAL(msg) qCritical() << msg
 #define LOG_WARNING(msg) qWarning() << msg
 
-#if defined(BUTEO_ENABLE_DEBUG)
+#if defined(QT_DEBUG)
 # define LOG_PROTOCOL(msg) qDebug() << msg
 # define LOG_INFO(msg) qDebug() << msg
 # define LOG_DEBUG(msg) qDebug() << msg
@@ -53,11 +53,11 @@
   */
 # define FUNCTION_CALL_TRACE Buteo::LogTimer timerDebugVariable(QString(__PRETTY_FUNCTION__));
 #else
-# define LOG_PROTOCOL(msg) if (false) qDebug() << msg
-# define LOG_INFO(msg) if (false) qDebug() << msg
-# define LOG_DEBUG(msg) if (false) qDebug() << msg
-# define LOG_TRACE(msg) if (false) qDebug() << msg
-# define LOG_TRACE_PLAIN(msg) if (false) qDebug() << msg
+# define LOG_PROTOCOL(msg) while (false) qDebug() << msg
+# define LOG_INFO(msg) while (false) qDebug() << msg
+# define LOG_DEBUG(msg) while (false) qDebug() << msg
+# define LOG_TRACE(msg) while (false) qDebug() << msg
+# define LOG_TRACE_PLAIN(msg) while (false) qDebug() << msg
 # define FUNCTION_CALL_TRACE
 #endif
 
