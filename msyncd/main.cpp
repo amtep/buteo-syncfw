@@ -46,7 +46,12 @@ Q_DECL_EXPORT int main( int argc, char* argv[] )
     QDBusConnection::systemBus();
 
     // Initialize the logger
-    Buteo::Logger::instance();
+    if (qApp->arguments().contains("-d")) {
+        Buteo::Logger::createInstance("", true); // log to stdout
+        Buteo::Logger::instance()->setLogLevel(Buteo::Logger::NUM_LEVELS);
+    } else {
+        Buteo::Logger::instance();
+    }
 
     LOG_DEBUG("Starting Log At :"  << QDateTime::currentDateTime()  );
 
